@@ -7,6 +7,7 @@ const QuizComponent = () => {
   const [questionsData, setQuestionsData] = useState([]);
   const [resultReady, setResultReady] = useState(false);
   const [errorOccurred, setErrorOccurred] = useState(false);
+  const [backMessage, setBackMessage] = useState(''); // State for back button message
 
   const minQuestions = 5;
   const maxQuestions = 15;
@@ -157,49 +158,77 @@ const QuizComponent = () => {
   };
 
   const handleBackButton = () => {
+
     if (questionCount > 1) {
-        setQuestionCount(questionCount - 1);
-        const previousQuestion = questionsData[questionCount - 2];
-        document.getElementById('question').textContent = previousQuestion.question;
-        const previousAnswers = previousQuestion.answers;
+        const newQuestionCount = questionCount - 1;
+        setQuestionCount(newQuestionCount);
+        console.log(`Going back to question ${newQuestionCount}`);
+
+        const previousQuestion = questionsData[newQuestionCount - 1];
+        setQuestionsData(questionsData.slice(0, newQuestionCount));
+        setAnswersData(answersData.slice(0, newQuestionCount - 1));
+        
         const buttons = document.querySelectorAll(`.${styles['quiz-answer']}`);
         buttons.forEach((button, index) => {
-            button.textContent = previousAnswers[index];
+            button.textContent = previousQuestion.answers[index];
             button.classList.remove(styles.selected);
         });
+        
+        document.getElementById('question').textContent = previousQuestion.question;
         document.getElementById('open-answer').value = '';
         document.querySelector(`.${styles['open-answer']}`).classList.remove(styles.expanded);
-        setAnswersData(answersData.slice(0, -1));
         document.getElementById('send-open-answer').disabled = true;
-        document.getElementById('back-button').disabled = questionCount === 1;
+        document.getElementById('back-button').disabled = newQuestionCount === 1;
     } else {
         initializeQuestion();
     }
-  };
+};
 
-  return (
+useEffect(() => {
+    if (questionCount === 1) {
+        initializeQuestion();
+    } else {
+        const currentQuestion = questionsData[questionCount - 1];
+        if (currentQuestion) {
+            document.getElementById('question').textContent = currentQuestion.question;
+            const currentAnswers = currentQuestion.answers;
+            const buttons = document.querySelectorAll(`.${styles['quiz-answer']}`);
+            buttons.forEach((button, index) => {
+                button.textContent = currentAnswers[index] || '';
+                button.classList.remove(styles.selected);
+            });
+            document.getElementById('open-answer').value = '';
+            document.querySelector(`.${styles['open-answer']}`).classList.remove(styles.expanded);
+            document.getElementById('send-open-answer').disabled = true;
+            document.getElementById('back-button').disabled = questionCount === 1;
+        }
+    }
+}, [questionCount, questionsData]);
+
+return (
     <div className={styles['quiz-body']}>
-      <div id="quiz-container" className={styles['quiz-container']}>
-        <button id="back-button" className={styles['back-button']} onClick={handleBackButton} disabled>↩</button>
-        <h1 className={styles['quiz-title']}>ВЫЯВИ СВОИ НАВЫКИ</h1>
-        <div id="questioncontainer" className={styles['question-container']}>
-          <p id="question" className={styles['quiz-question']}>Какую деятельность вы предпочитаете?</p>
-          <div id="answers">
-            {questionsData[questionCount - 1]?.answers.map((answer, index) => (
-              <button key={index} className={styles['quiz-answer']} onClick={() => handleAnswerClick(answer, index)}>
-                {answer}
-              </button>
-            ))}
-            <div className={styles['open-answer']}>
-              <input type="text" id="open-answer" placeholder="Ваш ответ (до 100 символов)" onInput={handleOpenAnswerInput} onKeyDown={(e) => e.key === 'Enter' && handleSendOpenAnswer(e)} />
-              <div id="char-count" className={styles['char-count']}>100</div>
-              <button id="send-open-answer" className={styles['send-open-answer']} onClick={handleSendOpenAnswer} disabled>↩</button>
+        <div id="quiz-container" className={styles['quiz-container']}>
+            <button id="back-button" className={styles['back-button']} onClick={handleBackButton} >↩</button>
+            <h1 className={styles['quiz-title']}>ВЫЯВИ СВОИ НАВЫКИ</h1>
+            <div id="questioncontainer" className={styles['question-container']}>
+                <p id="question" className={styles['quiz-question']}>Какую деятельность вы предпочитаете?</p>
+                <div id="answers">
+                    {questionsData[questionCount - 1]?.answers.map((answer, index) => (
+                        <button key={index} className={styles['quiz-answer']} onClick={() => handleAnswerClick(answer, index)}>
+                            {answer}
+                        </button>
+                    ))}
+                    <div className={styles['open-answer']}>
+                        <input type="text" id="open-answer" placeholder="Ваш ответ (до 100 символов)" onInput={handleOpenAnswerInput} onKeyDown={(e) => e.key === 'Enter' && handleSendOpenAnswer(e)} />
+                        <div id="char-count" className={styles['char-count']}>100</div>
+                        <button id="send-open-answer" className={styles['send-open-answer']} onClick={handleSendOpenAnswer}>↩</button>
+                    </div>
+                </div>
+                {backMessage && <p className={styles['back-message']}>{backMessage}</p>} {/* Display back message */}
             </div>
-          </div>
         </div>
-      </div>
     </div>
   );
-};
+}
 
 export default QuizComponent;
