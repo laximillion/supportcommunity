@@ -54,7 +54,7 @@ const QuizComponent = () => {
       fetchResult(updatedAnswersData);
     } else if (questionCount < maxQuestions) {
       try {
-        const response = await fetch('http://localhost:5000/api/generate-question', {
+        const response = await fetch('/api/generate-question', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ const QuizComponent = () => {
 
   const fetchResult = async (updatedAnswersData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/get-result', {
+      const response = await fetch('/api/get-result', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ const QuizComponent = () => {
       const data = await response.json();
 
       if (data.skill && data.explanation) {
-        const categoryResponse = await fetch('http://localhost:5000/api/get-category', {
+        const categoryResponse = await fetch('/api/get-category', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ const QuizComponent = () => {
         const categoryData = await categoryResponse.json();
 
         if (categoryData.category && categoryData.explanation) {
-          window.location.href = `http://localhost:5000/result?skill=${encodeURIComponent(data.skill)}&explanation=${encodeURIComponent(data.explanation)}&category=${encodeURIComponent(categoryData.category)}&categoryExplanation=${encodeURIComponent(categoryData.explanation)}`;
+          window.location.href = `/result?skill=${encodeURIComponent(data.skill)}&explanation=${encodeURIComponent(data.explanation)}&category=${encodeURIComponent(categoryData.category)}&categoryExplanation=${encodeURIComponent(categoryData.explanation)}`;
         } else {
           console.error('Invalid category response data:', categoryData);
           alert('Произошла ошибка при определении категории. Попробуйте снова.');
