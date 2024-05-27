@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url('./fonts/Gilroy-Regular.woff') format('woff');
+  font-display: swap; /* Fallback text is immediately visible, replaced by the font once it loads */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('./fonts/Gilroy-Bold.woff') format('woff');
+  font-display: swap;
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif, Gilroy-Bold, Gilroy-Regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

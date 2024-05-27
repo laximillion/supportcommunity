@@ -1,0 +1,53 @@
+/* ResultComponent.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.result-body {
+    font-family: "Comfortaa", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.result-container {
+    background-color: #4460C3;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    text-align: center;
+    color: white;
+    position: relative;
+    border: none;
+}
+
+.result-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.result-skill, .result-description {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.result-button {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    background-color: #2A416A;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.result-button:hover {
+    background-color: #1e8449;
+    color: white;
+}

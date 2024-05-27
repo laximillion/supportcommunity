@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.quiz-body {
+    font-family: "Comfortaa", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background-color: transparent;
+    margin: 0;
+}
+
+.quiz-container {
+    background-color: #4460C3;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    text-align: center;
+    color: white;
+    position: relative;
+    border: none;
+}
+
+.quiz-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.quiz-question {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.question-container {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    background-color: #2A416A;
+    border-radius: 20px;
+    border: none;
+}
+
+.quiz-answer {
+    font-family: "Comfortaa", sans-serif;
+    display: flex;
+    align-items: center;
+    width: calc(100%);
+    padding: 15px 20px;
+    margin: 0px 0px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
+    position: relative;
+    font-size: 18px;
+}
+
+.quiz-answer:hover, .quiz-answer.selected {
+    background-color: #FFFFFF;
+    color: #2A416A;
+}
+
+.quiz-answer::before {
+    content: '〇';
+    font-size: 1.2em;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.quiz-answer.selected::before {
+    content: '⬤';
+    color: #2A416A;
+}
+
+.open-answer {
+    width: calc(100% - 40px);
+    padding: 15px 20px;
+    margin: 0px 0px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease, height 0.3s ease, margin-bottom 0.3s ease, border-radius 0.3s ease;
+    position: relative;
+    font-size: 18px;
+}
+
+.open-answer input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.open-answer input:focus {
+    color: #2A416A;
+}
+
+.open-answer.expanded {
+    background-color: #FFFFFF;
+    color: #2A416A;
+    height: 60px;
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
+}
+
+.open-answer.expanded input {
+    color: #2A416A;
+}
+
+.open-answer.expanded #char-count {
+    color: #2A416A;
+}
+
+.char-count {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: transparent;
+    font-size: 0.8em;
+    transition: color 0.3s ease;
+}
+
+.send-open-answer {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #2A416A;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    font-size: 1.2em;
+}
+
+.send-open-answer:hover {
+    color: #1e8449;
+}
+
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+}
+
+.back-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

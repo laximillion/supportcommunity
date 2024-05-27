@@ -1,0 +1,69 @@
+.Container_Info {
+    padding-bottom: 60px;
+    padding-top: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 20px;
+    background-color: #2A416A;
+    display: flex;
+    justify-content: space-between;
+    min-width: 344px;
+    margin-bottom: 50px;
+}
+.Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+.Logo {
+    max-Width: 20%;
+    height: auto;
+    width: auto;
+} 
+.TitleWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.Title {
+    font-family: 'Gilroy-Bold';
+    font-size: 45px;
+    font-weight: 900;
+    line-height: 56.16px;
+    color: #FFFFFF
+}
+
+.Subtitle {
+    font-family: 'Gilroy-Regular';
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 36.39px;
+    color: #4DDCE9
+
+}
+
+.Description {
+    font-family: 'Gilroy-Regular';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24.26px;
+    color: #FFFFFF
+}
+
+.Button {
+    width: 60%;
+    background-color: #4460C3;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Gilroy-Bold';
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 24.96px;
+
+}

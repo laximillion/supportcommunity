@@ -1,0 +1,26 @@
+.PopupContainer {
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.PopupWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.PopupDescription {
+    font-family: 'Gilroy-Regular';
+    font-size: 30px;
+}
+
+.PopupTitle {
+    font-family: 'Gilroy-Regular';
+    font-size: 30px;
+    text-align: center;
+}
+
+.PopupImage {
+    width: 341px;
+    height: 341px;
+    border-radius: 20px;
+}

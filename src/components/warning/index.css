@@ -1,0 +1,16 @@
+.Container_Warning {
+    background-color: #4DDCE9;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.Title_Warning {
+    font-family: 'Gilroy-Regular';
+    font-size: 30px;
+    line-height: 37.44px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 20px
+
+}

@@ -1,0 +1,24 @@
+.Carousel_container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slick-slide {
+    transition: all 0.3s ease;
+    transform: scale(0.6);
+    /* padding: 0 15 0 30px; */
+}
+
+.slick-center {
+    transform: scale(1);
+    margin: 0 25px 0 50px
+}
+
+.Carousel_Title {
+    font-family: 'Gilroy-Bold';
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 49.92px;
+    text-align: center;
+    color: #4460C3;
+}
