@@ -3,6 +3,11 @@ import bodyParser from 'body-parser';
 import fetch from 'node-fetch';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
@@ -11,9 +16,13 @@ const port = 5000;
 
 app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json());
-app.use(express.static("build"))
+app.use(express.static("build"));
 app.get('/', (req, res) => {
     res.send('API is running');
+});
+
+app.get('/result', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.post('/api/generate-question', async (req, res) => {

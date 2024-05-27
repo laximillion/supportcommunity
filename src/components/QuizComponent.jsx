@@ -117,7 +117,7 @@ const QuizComponent = () => {
         const categoryData = await categoryResponse.json();
 
         if (categoryData.category && categoryData.explanation) {
-          window.location.href = `/result?skill=${encodeURIComponent(data.skill)}&explanation=${encodeURIComponent(data.explanation)}&category=${encodeURIComponent(categoryData.category)}&categoryExplanation=${encodeURIComponent(categoryData.explanation)}`;
+          window.location.href = `http://localhost:5000/result?skill=${encodeURIComponent(data.skill)}&explanation=${encodeURIComponent(data.explanation)}&category=${encodeURIComponent(categoryData.category)}&categoryExplanation=${encodeURIComponent(categoryData.explanation)}`;
         } else {
           console.error('Invalid category response data:', categoryData);
           alert('Произошла ошибка при определении категории. Попробуйте снова.');
