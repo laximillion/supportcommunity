@@ -29,7 +29,7 @@ const Carousel = ({ items }) => {
                     arrows: true,
                     centerMode: true,
                     centerPadding: '0px',
-                    slidesToShow: 2
+                    slidesToShow: 3
                 }
             }
         ]
