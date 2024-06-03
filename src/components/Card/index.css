@@ -1,6 +1,6 @@
 .CardContainer {
-    width: 448px;
-    height: 448px;
+    width: 38vw;
+    height: 38vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -10,16 +10,16 @@
 }
 
 .CardImage {
-    width: 341px;
-    height: 341px;
+    height: 30vw;
+    width: 30vw;
     border-radius: 20px;
 }
 
 .CardTitle {
     font-family: 'Gilroy-Regular';
-    font-size: 30px;
+    font-size: 3vw;
     font-weight: 400;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 20px;
+    margin-top: 2vw;
 }

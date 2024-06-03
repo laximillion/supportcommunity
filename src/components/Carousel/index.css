@@ -1,6 +1,7 @@
 .Carousel_container {
     width: 100%;
     overflow: hidden;
+    height: 78vw;
 }
 
 .slick-slide {
@@ -15,11 +16,14 @@
 }
 
 .Carousel_Title {
-    font-family: 'Gilroy-Bold';
-    font-size: 40px;
+    margin-right: 10vw;
+    color: #4460c3;
+    font-family: Gilroy-Bold;
+    font-size: 5vw;
     font-weight: 900;
-    line-height: 49.92px;
+    line-height: 5vw;
+    margin-left: 10vw;
     text-align: center;
-    margin: 100px;
-    color: #4460C3;
+    margin-top: 8vw;
+    margin-bottom: 5vw;
 }

@@ -3,6 +3,7 @@
     border-radius: 20px;
     display: flex;
     justify-content: center;
+    margin-top: 10vw;
 }
 
 .Title_Warning {
@@ -11,6 +12,6 @@
     line-height: 37.44px;
     text-align: center;
     color: #FFFFFF;
-    padding: 20px
+    padding: 20px;
 
 }
