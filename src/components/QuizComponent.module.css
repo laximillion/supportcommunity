@@ -150,7 +150,7 @@
 .back-button {
     position: absolute;
     top: 2vw;
-    left: auto;
+    left: 3vw;
     background: none;
     border: none;
     cursor: pointer;
